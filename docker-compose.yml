@@ -2,7 +2,8 @@ version: '3'
 
 services:
   web:
-    image: nginx
+    build:
+      context: ./web
     ports:
       - "80:80"
     volumes:
