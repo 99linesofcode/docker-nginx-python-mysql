@@ -8,3 +8,12 @@ services:
     volumes:
       - "./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro"
       - "./web:/usr/share/nginx/html:ro"
+    depends_on:
+      - flask
+  flask:
+    build: .
+    expose:
+      - "3031"
+    volumes:
+      - "./web:/usr/src/app"
+    command: /bin/bash -c "uwsgi --ini /usr/src/app/uwsgi.ini"
