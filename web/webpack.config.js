@@ -4,9 +4,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './assets/index.jsx',
+  entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'build/'),
+    path: path.resolve(__dirname, 'public/'),
     filename: 'main.js'
   },
   module: {
@@ -32,6 +32,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({ filename: "bundle.css", allChunks: true }),
-    new HtmlWebpackPlugin({ template: "./assets/index.html", inject: "body" })
+    new HtmlWebpackPlugin({ template: "./src/index.html", inject: "body" })
   ]
 };

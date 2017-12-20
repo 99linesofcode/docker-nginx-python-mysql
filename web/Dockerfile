@@ -1,10 +1,10 @@
 FROM node:9.3 as build-deps
 LABEL maintainer="jordy@schreuders.it"
-WORKDIR /usr/src/app
+WORKDIR /usr/src/web
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . ./
 RUN yarn build
 
 FROM nginx:1.13
-COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html/public
+COPY --from=build-deps /usr/src/web/public /usr/share/nginx/html/public
