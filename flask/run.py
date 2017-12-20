@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-from app import create_app
+from appname import create_app
 
 app = create_app()
 
