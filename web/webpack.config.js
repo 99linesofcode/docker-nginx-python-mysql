@@ -1,13 +1,15 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const extractTextPlugin = require("extract-text-webpack-plugin");
+const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
 
+
 module.exports = {
-  entry: './src/index.jsx',
+  context: path.resolve(__dirname, 'src'),
+  entry: './index.jsx',
   output: {
-    path: path.resolve(__dirname, 'public/'),
-    filename: 'main.js'
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -22,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.sass|.css$/,
-        loader: ExtractTextPlugin.extract({
+        loader: extractTextPlugin.extract({
           fallback: "style-loader",
           use: ["css-loader", "sass-loader"]
         })
@@ -31,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin({ filename: "bundle.css", allChunks: true }),
-    new HtmlWebpackPlugin({ template: "./src/index.html", inject: "body" })
+    new extractTextPlugin({ filename: "bundle.css", allChunks: true }),
+    new htmlWebpackPlugin({ template: "./index.html", inject: "body" })
   ]
 };
