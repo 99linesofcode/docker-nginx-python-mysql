@@ -6,7 +6,7 @@
 # Integrated Development Environments
 .idea
 
-# Node
+
 node_modules/
 
 # Yarn
@@ -49,4 +49,4 @@ env*
 *.sublime-*
 .cache/
 
-web/app/static/
+src/public/*
