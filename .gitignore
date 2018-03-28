@@ -9,6 +9,9 @@
 # Node
 node_modules/
 
+# Yarn
+yarn-error.log
+
 # Packages
 *.egg
 *.egg-info
