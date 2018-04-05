@@ -5,7 +5,7 @@ const path = require('path');
 
 
 module.exports = {
-  context: path.resolve(__dirname, 'app/src'),
+  context: path.resolve(__dirname, 'src'),
   entry: './index.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),

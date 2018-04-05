@@ -1,0 +1,22 @@
+# -----------------------------------------------------------------------------
+# multi-stage build container
+# -----------------------------------------------------------------------------
+FROM node:8.9 as build-deps
+
+LABEL maintainer="jordy@schreuders.it"
+
+WORKDIR /usr/src/front
+
+COPY front/package.json front/yarn.lock ./
+RUN yarn
+
+COPY front/ ./
+RUN yarn build
+
+
+# -----------------------------------------------------------------------------
+# NGINX container
+# -----------------------------------------------------------------------------
+FROM nginx:alpine
+
+COPY --from=build-deps /usr/src/front/public /usr/share/nginx/html

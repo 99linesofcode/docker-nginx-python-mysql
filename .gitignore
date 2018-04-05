@@ -1,52 +1,23 @@
-*.pyc
-*.pyo
-*.swp
-*~
+# -----------------------------------------------------------------------------
+# development environment 
+# -----------------------------------------------------------------------------
+.DS_STORE
 
-# Integrated Development Environments
+# -----------------------------------------------------------------------------
+# integrated development environments 
+# -----------------------------------------------------------------------------
 .idea
 
+# -----------------------------------------------------------------------------
+# front 
+# -----------------------------------------------------------------------------
+front/public
+front/node_modules
+front/yarn-error.log
 
-node_modules/
-
-# Yarn
-yarn-error.log
-
-# Packages
-*.egg
-*.egg-info
-dist
-build/
-eggs
-bin
-sdist
-
-#Sphinx builds
-_build
-
-# Installer logs
-pip-log.txt
-
-# Flake8 violation file
-violations.flake8.txt
-
-# Unit test / coverage reports
-.coverage
-.tox
-nosetests.xml
-__pycache__
-database.db
-
-# Sphinx
-docs/_build
-
-# Virtual environments
-env
-env*
-
-.webassets-cache
-.DS_Store
-*.sublime-*
-.cache/
-
-src/public/*
+# -----------------------------------------------------------------------------
+# back 
+# -----------------------------------------------------------------------------
+back/requirements.txt
+back/pip-log.txt
+back/__pycache__

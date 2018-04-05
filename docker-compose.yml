@@ -3,21 +3,21 @@ version: '3'
 services:
   nginx:
     build:
-      context: ./src/
+      context: .
       dockerfile: Dockerfile.nginx
     ports:
       - "80:80"
     volumes:
-      - "./conf/nginx/default:/etc/nginx/conf.d/default.conf:ro"
-      - "./src/public:/usr/share/nginx/html/public"
+      - "./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro"
+      - "./front/public:/usr/share/nginx/html/public"
     depends_on:
       - flask
   flask:
     build:
-      context: ./src/
+      context: .
       dockerfile: Dockerfile.flask
     expose:
       - "3031"
     volumes:
-      - "./src:/usr/src/api"
-    command: /bin/bash -c "uwsgi --ini /usr/src/api/uwsgi.ini"
+      - "./back:/usr/src/back"
+    command: /bin/bash -c "uwsgi --ini /usr/src/back/uwsgi.ini"

@@ -1,23 +1,12 @@
 {
   "name": "base",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "author": "Jordy Schreuders <jordy@schreuders.it>",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "test": "jest"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/fileMock.js",
-      "\\.(css|sass)$": "<rootDir>/src/stylesheets/"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/src/stylesheets/"
-    ]
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "normalize-css": "^2.3.1",
@@ -35,7 +24,6 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
-    "jest": "^22.0.3",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
