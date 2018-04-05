@@ -1,7 +1,7 @@
-start:
+docker-start:
 	docker-compose -f docker-compose.yml up
 
-reset:
-	docker-compose stop
+docker-reset:
+	docker-compose down -v
 	docker system prune -f
 	docker volume prune -f
