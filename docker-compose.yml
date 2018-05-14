@@ -21,3 +21,15 @@ services:
     volumes:
       - "./back:/var/www/html/app"
     command: /bin/bash -c "uwsgi --ini /var/www/html/app/uwsgi.ini"
+  mysql:
+    image: mysql
+    restart: always
+    env_file:
+      - ".env"
+    volumes:
+      - "./data/db/mysql:/var/lib/mysql"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
