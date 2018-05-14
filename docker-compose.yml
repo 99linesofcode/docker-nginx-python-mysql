@@ -12,6 +12,7 @@ services:
       - "./front/public:/usr/share/nginx/html/public"
     depends_on:
       - python
+    command: ["nginx-debug", "-g", "daemon off;"]
   python:
     build:
       context: .
