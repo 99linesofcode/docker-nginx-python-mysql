@@ -1,7 +1,11 @@
-docker-start:
-	docker-compose -f docker-compose.yml up
+include .env
 
-docker-reset:
+clean:
+	rm -rf data/db/mysql/*
+
+docker-start:
+	docker-compose up -d
+
+docker-stop:
 	docker-compose down -v
-	docker system prune -f
-	docker volume prune -f
+	@make clean
