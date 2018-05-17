@@ -2,7 +2,7 @@ FROM python:3.6-stretch
 
 LABEL maintainer="jordy@schreuders.it"
 
-WORKDIR /usr/src/back
+WORKDIR /var/www/html/app
 
 COPY back/requirements.txt ./
 

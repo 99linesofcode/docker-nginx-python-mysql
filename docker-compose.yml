@@ -5,19 +5,31 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
-    ports:
-      - "80:80"
     volumes:
-      - "./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro"
-      - "./front/public:/usr/share/nginx/html/public"
+      - "./etc/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./front/public:/var/www/html/public"
+    ports:
+      - "8000:80"
+    restart: always
     depends_on:
-      - flask
-  flask:
+      - python
+    command: ["nginx-debug", "-g", "daemon off;"]
+  python:
     build:
       context: .
-      dockerfile: Dockerfile.flask
-    expose:
-      - "3031"
+      dockerfile: Dockerfile.python
     volumes:
-      - "./back:/usr/src/back"
-    command: /bin/bash -c "uwsgi --ini /usr/src/back/uwsgi.ini"
+      - "./back:/var/www/html/app"
+    command: /bin/bash -c "uwsgi --ini /var/www/html/app/uwsgi.ini"
+  mysql:
+    image: mysql
+    restart: always
+    env_file:
+      - ".env"
+    volumes:
+      - "./data/db/mysql:/var/lib/mysql"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
