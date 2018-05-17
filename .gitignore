@@ -13,14 +13,13 @@
 # -----------------------------------------------------------------------------
 *.pyc
 
-front/package.json
-front/yarn.lock
+/front/package.json
+/front/yarn.lock
 
-front/public
-front/node_modules
+/front/public
+/front/node_modules
 
-back/requirements.txt
-back/pip-log.txt
-back/__pycache__
+/back/requirements.txt
+/back/pip-log.txt
 
-data
+/data
