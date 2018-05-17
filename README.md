@@ -8,7 +8,7 @@ This Docker setup is optimized for local development and is still a work in prog
 | docker-stop     | Stop all containers and remove Docker networks   |
 
 ### Prerequisites
-This repository contains the necessary Docker configuration that allows you to host your front- and back end code. By default, NGINX code is served from the `/front` directory and PHP code lives inside the `/back` directory. Take a look at the `docker-compose.yml` file or the playground-flask repository at the URL below:
+This repository contains the necessary Docker configuration that allows you to host your front- and back end code. By default, NGINX serves the front end code from the `/front` directory. The Python code lives inside the `/back` directory. Take a look at the `docker-compose.yml` file or the playground-flask repository at the URL below:
 
 https://github.com/99linesofcode/playground-flask
 
